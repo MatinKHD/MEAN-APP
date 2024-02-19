@@ -28,6 +28,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.onFetchedPosts();
     this.user$ = this.authSerive.user$;
+    this.posts$ = this.postService.posts$;
   }
 
   onDeletePost(postId: string) {
@@ -46,7 +47,7 @@ export class ListComponent implements OnInit {
     this.postService.fetchPosts(this.postPerPage, 1).subscribe({
       next: ({ posts, maxPosts }) => {
         this.isLoading = false;
-        this.posts = posts;
+
         this.postsLength = maxPosts;
         if (maxPosts < 20) {
           this.pageSizeOption = [1, 2, 5, 10, 15, maxPosts];
