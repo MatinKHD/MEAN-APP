@@ -26,15 +26,18 @@
       Signup
     </a>
   </ng-container>
-  <ng-container *ngIf="(user$ | async)?.authStatus">
+  <ng-container
+    *ngIf="(user$ | async)?.authStatus && (user$ | async)?.user as user"
+  >
     <span style="font-size: 14px">Welcome</span>
     <a
       style="font-size: 16px"
       mat-button
-      [routerLink]="['user/profile/', (user$ | async)?.user?.id]"
-      >{{ (user$ | async)?.user?.name | uppercase }}</a
+      [routerLink]="['user/profile/', user.id]"
+      >{{ user.name | uppercase }}</a
     >
     <img
+      *ngIf="user.imagePath.length > 0"
       mat-card-avatar
       [src]="(user$ | async)?.user?.imagePath"
       alt="user-profile"
