@@ -93,6 +93,14 @@ export class PostService {
   };
 
   deletePost(postId: string): Observable<{ message: string }> {
-    return this.http.delete<{ message: string }>(this.url + `/${postId}`);
+    return this.http
+      .delete<{ message: string; postId: string }>(this.url + `/${postId}`)
+      .pipe(
+        tap((response) => {
+          this.posts = this.posts.filter((post) => post.id !== response.postId);
+
+          this.postsSource.next({ posts: this.posts });
+        })
+      );
   }
 }
