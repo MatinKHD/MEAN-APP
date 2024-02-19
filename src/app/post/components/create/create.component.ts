@@ -76,6 +76,7 @@ export class CreateComponent extends Unsub implements OnInit {
       )
       .subscribe((postData) => {
         this.isLoading = false;
+        console.log(postData);
         if (postData.id) {
           this.mode = 'eidt';
           this.post = postData;
@@ -84,6 +85,7 @@ export class CreateComponent extends Unsub implements OnInit {
             content: postData.content,
             image: postData.imagePath,
           });
+          this.imagePreview = postData.imagePath;
         } else {
           this.mode = 'create';
           this.post = postData;
