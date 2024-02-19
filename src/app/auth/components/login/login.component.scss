@@ -1,0 +1,16 @@
+.container {
+  background-color: #9e9c9c23;
+  box-shadow: 0px 0px 7px 3px #69696987;
+  border-radius: 10px;
+  overflow: hidden;
+}
+form {
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: center;
+  margin: 10px;
+  mat-form-field {
+    width: 70%;
+  }
+}

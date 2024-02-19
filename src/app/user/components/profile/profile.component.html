@@ -1,0 +1,49 @@
+<div class="container">
+  <form *ngIf="form" [formGroup]="form" (submit)="onFormSubmitHandler()">
+    <div class="image-container">
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="" />
+      <input
+        type="file"
+        #filePicker
+        (change)="onFilePickerHandler($event)"
+        style="display: none"
+      />
+      <button type="button" mat-button (click)="filePicker.click()">
+        Select Profile
+      </button>
+    </div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" placeholder="Name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Lastname</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Lastname"
+        formControlName="lastname"
+      />
+    </mat-form-field>
+    <div class="email-contianer">
+      <label>Email</label>
+      <div>{{ user.email }}</div>
+    </div>
+
+    <mat-form-field>
+      <mat-select mat-input formControlName="gender">
+        <mat-option value="man">Man</mat-option>
+        <mat-option value="woman">Woman</mat-option>
+        <mat-option value="others">Others</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Update
+    </button>
+  </form>
+</div>

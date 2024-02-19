@@ -1,0 +1,118 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form [formGroup]="form" (submit)="onSignupHandler()" *ngIf="!isLoading">
+        <div class="name-container">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Name"
+              type="text"
+              formControlName="name"
+            />
+            <mat-error
+              *ngIf="
+                form.get('name')?.touched &&
+                form.get('name')?.hasError('required')
+              "
+            >
+              Name is required</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Lastname"
+              type="text"
+              formControlName="lastname"
+            />
+            <mat-error
+              *ngIf="
+                form.get('lastname')?.touched &&
+                form.get('lastname')?.hasError('required')
+              "
+            >
+              Lastname is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            type="email"
+            formControlName="email"
+          />
+          <mat-error
+            *ngIf="
+              form.get('email')?.touched &&
+              form.get('email')?.hasError('required')
+            "
+          >
+            Email is required</mat-error
+          >
+          <mat-error *ngIf="form.get('email')?.hasError('existEmail')">
+            this email already registerd</mat-error
+          >
+        </mat-form-field>
+        <div class="password-group" formGroupName="passwordGroup">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Password"
+              type="password"
+              formControlName="password"
+            />
+            <mat-error
+              *ngIf="
+                form.get('passwordGroup')?.get('password')?.touched &&
+                form.get('passwordGroup')?.get('password')?.hasError('required')
+              "
+            >
+              Password is required</mat-error
+            >
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Confirm Password"
+              type="password"
+              formControlName="confirmPassword"
+            />
+            <mat-error
+              *ngIf="
+                form.get('passwordGroup')?.get('confirmPassword')?.touched &&
+                form
+                  .get('passwordGroup')
+                  ?.get('confirmPassword')
+                  ?.hasError('required')
+              "
+            >
+              Confirm Password is required</mat-error
+            >
+          </mat-form-field>
+          <div
+            class="password-group-error"
+            *ngIf="
+              form.get('passwordGroup')?.touched &&
+              form.get('passwordGroup')?.dirty &&
+              form.get('passwordGroup')?.errors
+            "
+          >
+            Passwords dose not match
+          </div>
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          [class.disabled]="form.invalid"
+          [disabled]="form.invalid"
+          type="submit"
+        >
+          Create Account
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

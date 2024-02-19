@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+  <a class="bg-white" color="primary" mat-stroked-button routerLink="/list"
+    >Post List <mat-icon>list</mat-icon></a
+  >
+  <a class="bg-white" color="primary" mat-stroked-button routerLink="/create"
+    >Create Post <mat-icon>add</mat-icon></a
+  >
+
+  <span class="spacer"></span>
+  <ng-container *ngIf="!(user$ | async)?.authStatus">
+    <a
+      mat-button
+      aria-label="Example icon-button with heart icon"
+      routerLink="auth/login"
+    >
+      Login
+      <mat-icon>login</mat-icon>
+    </a>
+    <a
+      routerLink="auth/signup"
+      mat-stroked-button
+      class="bg-white"
+      aria-label="Example icon-button with share icon"
+      color="primary"
+    >
+      Signup
+    </a>
+  </ng-container>
+  <ng-container *ngIf="(user$ | async)?.authStatus">
+    <span style="font-size: 14px">Welcome</span>
+    <a
+      style="font-size: 16px"
+      mat-button
+      [routerLink]="['user/profile/', (user$ | async)?.user?.id]"
+      >{{ (user$ | async)?.user?.name | uppercase }}</a
+    >
+    <img
+      mat-card-avatar
+      [src]="(user$ | async)?.user?.imagePath"
+      alt="user-profile"
+    />
+
+    <button
+      mat-stroked-button
+      color="warn"
+      class="logout"
+      type="button"
+      (click)="onLogoutClickHanlder()"
+    >
+      Logout
+    </button>
+  </ng-container>
+</mat-toolbar>

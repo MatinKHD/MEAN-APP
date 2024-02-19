@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="form" (submit)="onSavePostHanlder(post.id)">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput type="text" placeholder="Title" formControlName="title" />
+    </mat-form-field>
+
+    <div class="image-container">
+      <button mat-button type="button" (click)="filePicker.click()">
+        Select Image
+      </button>
+      <input
+        type="file"
+        style="display: none"
+        #filePicker
+        (change)="onFilePickerHandler($event)"
+      />
+      <img
+        *ngIf="imagePreview"
+        class="imagePreview"
+        [src]="imagePreview"
+        alt="imagePreview"
+      />
+    </div>
+
+    <mat-form-field>
+      <mat-label>Content</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Content"
+        formControlName="content"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">
+      {{ mode === "create" ? ("save" | uppercase) : ("edit" | uppercase) }}
+    </button>
+  </form>
+</div>
