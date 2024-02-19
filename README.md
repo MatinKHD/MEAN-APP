@@ -1,5 +1,5 @@
 # MeanCourse
-by[@MainKHD](http://tiwtter.com/KhdMatin)
+by [@MainKHD](http://twitter.com/KhdMatin)
 
 ## Table of Content
 - [Live Demo](http://localhost:4200)
