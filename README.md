@@ -21,7 +21,7 @@ by[@MainKHD](http://tiwtter.com/matinkhd
     npm start-server
   ```
 
-  ##Useful Commands
+  ## Useful Commands
   
   -`npm start`  -start dev server
   - `npm run start:prod` - runs full prod build and serves prod bundle
@@ -30,13 +30,13 @@ by[@MainKHD](http://tiwtter.com/matinkhd
   - `npm run watch` - runs tests in watch mode
   - `npm run start-server` - runs nodemon for backend api & server
  
-  ##Features
+  ## Features
   
   - Lazy-loading of post and auth module
   - Multer for storing files and images in server-side
   - Authentication and Authorizarion
  
-  ##Stack
+  ## Stack
 
   - Angular
   - Mongo-DB
