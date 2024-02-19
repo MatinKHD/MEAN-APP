@@ -23,7 +23,7 @@ by[@MainKHD](http://tiwtter.com/matinkhd
 
   ## Useful Commands
   
-  -`npm start`  -start dev server
+  - `npm start`  -start dev server
   - `npm run start:prod` - runs full prod build and serves prod bundle
   - `npm run test` - runs lint and tests
   - `npm run e2e` - runs end-to-end tests
