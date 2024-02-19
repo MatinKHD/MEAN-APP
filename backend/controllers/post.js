@@ -146,18 +146,26 @@ exports.deletePost = async (req, res, next) => {
     const filter = {
       $and: [{ _id: postId }, { creator: req.userData.id }],
     };
+    const item = await Post.findOne({ _id: postId });
     const deletedItem = await Post.deleteOne(filter);
-    console.log(deletedItem);
+
     if (!deletedItem) {
       return res.status(403).json({
         message: "forbidden: You are not allowed to delete this item.",
       });
     } else {
-      return res.status(204).end();
+      return res
+        .status(200)
+        .json({
+          message: "post deleted successfully",
+          postId: item._id,
+        })
+        .end();
     }
   } catch (err) {
     return res.status(500).json({
       message: "Internal Server Error",
+      error: err,
     });
   }
 };
