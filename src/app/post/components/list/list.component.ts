@@ -44,17 +44,8 @@ export class ListComponent implements OnInit {
 
   private onFetchedPosts(): void {
     this.isLoading = true;
-    this.postService.fetchPosts(this.postPerPage, 1).subscribe({
-      next: ({ posts, maxPosts }) => {
-        this.isLoading = false;
-
-        this.postsLength = maxPosts;
-        if (maxPosts < 20) {
-          this.pageSizeOption = [1, 2, 5, 10, 15, maxPosts];
-        } else {
-          this.pageSizeOption = [1, 2, 5, 10, 15];
-        }
-      },
-    });
+    this.postService
+      .fetchPosts(this.postPerPage, 1)
+      .subscribe(() => (this.isLoading = false));
   }
 }
