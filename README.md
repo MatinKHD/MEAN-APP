@@ -1,7 +1,7 @@
 # MeanCourse
 by [@MainKHD](http://twitter.com/KhdMatin)
 
-![intro](https://raw.githubusercontent.com/MatinKHD/MEAN-APP/master/metadata-assets/MeanCourse.gif)
+![intro](https://raw.githubusercontent.com/MatinKHD/MEAN-APP/main/metadata-assets/MeanCourse.gif)
 
 ## Table of Content
 - [Live Demo](http://localhost:4200)
