@@ -1,27 +1,47 @@
 # MeanCourse
+by [@MainKHD](http://twitter.com/KhdMatin)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+## Table of Content
+- [Live Demo](http://localhost:4200)
+- [Getting Strated](#getting-strated)
+- [Useful Commands](#useful-commands)
+- [Features](#features)
+- [Stack](#stack)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  ## Getting started
+  
+  ```bash
+    git clone https://github.com/MatinKHD/MEAN-APP.git new-project
+    cd new project
+    npm install
+    npm start
+    cd backend
+    npm install
+    npm start-server
+  ```
 
-## Code scaffolding
+  ## Useful Commands
+  
+  - `npm start`  -start dev server
+  - `npm run start:prod` - runs full prod build and serves prod bundle
+  - `npm run test` - runs lint and tests
+  - `npm run e2e` - runs end-to-end tests
+  - `npm run watch` - runs tests in watch mode
+  - `npm run start-server` - runs nodemon for backend api & server
+ 
+  ## Features
+  
+  - Lazy-loading of post and auth module
+  - Multer for storing files and images in server-side
+  - Authentication and Authorizarion
+ 
+  ## Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  - Angular
+  - Mongo-DB
+  - Node
+  - Express
+  - Angular Material
+  - Scss
+  
