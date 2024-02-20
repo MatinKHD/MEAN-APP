@@ -7,7 +7,7 @@ export const existEmail = (authService: AuthService) => {
     return authService
       .existEmail(control.value)
       .pipe(
-        map((userExistance) => (userExistance ? { ExistEmail: true } : null))
+        map((userExistance) => (userExistance ? { existEmail: true } : null))
       );
   };
 };
