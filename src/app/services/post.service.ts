@@ -25,9 +25,7 @@ export class PostService {
   ): Observable<{ posts: Post[]; maxPosts: number }> {
     const queryParams = `?pagesize=${pageSize}&currentpage=${currentPage}`;
     return this.http
-      .get<{ message: string; posts: Post[]; maxPosts: number }>(
-        this.url + queryParams
-      )
+      .get<{ message: string; posts: Post[]; maxPosts: number }>(this.url)
       .pipe(
         tap(({ message, posts, maxPosts }) => {
           this.posts = [...posts];
