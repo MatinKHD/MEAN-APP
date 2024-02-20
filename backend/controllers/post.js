@@ -38,18 +38,19 @@ exports.create = async (req, res, next) => {
 exports.update = async (req, res, next) => {
   let imagePath = req.body.imagePath;
   if (req.file) {
-    const url = req.portocol + "://" + req.get("host");
+    const url = req.protocol + "://" + req.get("host");
     imagePath = url + "/images/" + req.file?.filename;
   }
   const id = req.params.id;
+  const user = JSON.parse(req.headers.user);
   const post = new Post({
     _id: id,
     title: req.body.title,
     content: req.body.content,
     imagePath,
     creator: req.body.creator,
-    craetorName: createdPost.craetorName,
-    creatorAvatar: createdPost.creatorAvatar,
+    craetorName: user.name,
+    creatorAvatar: user.imagePath,
   });
 
   try {
@@ -75,8 +76,8 @@ exports.update = async (req, res, next) => {
           content: post.content,
           imagePath: post.imagePath,
           creator: req.body.creator,
-          craetorName: createdPost.craetorName,
-          creatorAvatar: createdPost.creatorAvatar,
+          craetorName: user.name,
+          creatorAvatar: user.imagePath,
         },
       });
     } else {
