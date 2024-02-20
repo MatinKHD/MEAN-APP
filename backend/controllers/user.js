@@ -72,34 +72,6 @@ exports.login = async (req, res, next) => {
   }
 };
 
-exports.getSingleUser = async (req, res, next) => {
-  const id = req.params.id;
-  try {
-    const fetchedUser = await User.findOne({ _id: id });
-    if (!fetchedUser) {
-      res.status(404).json({
-        message: "user not found",
-      });
-    }
-    res.status(200).json({
-      message: "user fetched successfully",
-      user: {
-        name: fetchedUser.name,
-        lastname: fetchedUser.lastname,
-        email: fetchedUser.email,
-        imagePath: fetchedUser.imagePath,
-        gender: fetchedUser.gender,
-      },
-      expirationDate: "360000",
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: "Internal server Error",
-      error,
-    });
-  }
-};
-
 exports.updateProfile = async (req, res, next) => {
   let imagePath = req.body.imagePath;
   if (req.file) {
@@ -156,4 +128,50 @@ exports.updateProfile = async (req, res, next) => {
       message: "Internal Server",
     });
   }
+};
+
+exports.getSingleUser = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const fetchedUser = await User.findOne({ _id: id });
+    if (!fetchedUser) {
+      res.status(404).json({
+        message: "user not found",
+      });
+    }
+    res.status(200).json({
+      message: "user fetched successfully",
+      user: {
+        name: fetchedUser.name,
+        lastname: fetchedUser.lastname,
+        email: fetchedUser.email,
+        imagePath: fetchedUser.imagePath,
+        gender: fetchedUser.gender,
+      },
+      expirationDate: "3600000",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal server Error",
+      error,
+    });
+  }
+};
+
+exports.getUsers = async (req, res, next) => {
+  fetchedUsers = await User.find();
+
+  const users = fetchedUsers.map((user) => ({
+    id: user._id,
+    name: user.name,
+    lastname: user.lastname,
+    email: user.email,
+    gender: user.gender,
+    imagePath: user.imagePath,
+  }));
+
+  res.status(200).json({
+    message: "users fetched successfully",
+    users,
+  });
 };

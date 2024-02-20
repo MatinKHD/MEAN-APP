@@ -15,6 +15,8 @@ router.put(
   UserController.updateProfile
 );
 
+router.get("/api/users", UserController.getUsers);
+
 router.get("/api/users/:id", UserController.getSingleUser);
 
 module.exports = router;
