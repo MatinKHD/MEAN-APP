@@ -1,6 +1,8 @@
 # MeanCourse
 by [@MainKHD](http://twitter.com/KhdMatin)
 
+![Alt Intro](https://github.com/MatinKHD/MEAN-APP/blob/main/metadata-assets/MeanCourse.gif)
+
 ## Table of Content
 - [Live Demo](http://localhost:4200)
 - [Getting Strated](#getting-strated)
